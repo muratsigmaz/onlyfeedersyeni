@@ -1,0 +1,17 @@
+{
+  "name": "onlyfeeders",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": "murat sığmaz",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "common-tags": "^1.8.0",
+    "math-expression-evaluator": "^1.2.17",
+    "moment": "^2.24.0"
+  }
+}
