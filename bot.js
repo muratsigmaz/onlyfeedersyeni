@@ -195,37 +195,6 @@ client.on('message', msg => {
 	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(ayarlar.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(ayarlar.prefix.length).split(' ')[0]](msg);
 });
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'sa') {
-		if (!msg.guild.member(msg.author).hasPermission("BAN_MEMBERS")) {
-			msg.author.sendMessage('Aleyküm selam,  hoş geldin ^^'); 
-		} else {
-		msg.reply('Aleyküm selam, hoş geldin ^^');
-		}
-	}
-});
-
-
-
-
-
-
-client.on("guildMemberAdd", member => {
-	
-	var channel = member.guild.channels.find("name", "giriş-çıkış");
-	if (!channel) return;
-	
-	var role = member.guild.roles.find("name", "üye");
-	if (!role) return;
-	
-	member.addRole(role); 
-	
-	channel.send(member + " artık " + role + " rolü ile aramızda");
-	
-	member.send("Aramıza hoş geldin! Artık @üye rolüne sahipsin!")
-	
-});
-
 client.elevation = message => {
   if(!message.guild) {
 	return; }
