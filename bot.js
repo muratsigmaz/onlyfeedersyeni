@@ -80,7 +80,7 @@ client.unload = command => {
   });
 };
 
-lient.on('ready', () => {
+client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
