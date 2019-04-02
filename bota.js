@@ -80,31 +80,100 @@ client.unload = command => {
   });
 };
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'sa') {
-		if (!msg.guild.member(msg.author).hasPermission("BAN_MEMBERS")) {
-			msg.author.sendMessage('Aleyküm selam,  hoş geldin ^^'); 
-		} else {
-		msg.reply('Aleyküm selam, hoş geldin ^^');
-		}
-	}
+lient.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on("guildMemberAdd", member => {
-	
-	var channel = member.guild.channels.find("name", "giriş-çıkış");
-	if (!channel) return;
-	
-	var role = member.guild.roles.find("name", "üye");
-	if (!role) return;
-	
-	member.addRole(role); 
-	
-	channel.send(member + " artık " + role + " rolü ile aramızda");
-	
-	member.send("Aramıza hoş geldin! Artık @üye rolüne sahipsin!")
-	
+
+
+
+client.on('message', msg => {
+  if (msg.content === 'sa') {
+    msg.reply('**Selam Hoşgeldin.**                                                          `>`<http://instagram.com/muratsigmaz>` takip etmeyi unutma! ♥');
+  }
 });
+
+client.on('message', msg => {
+  if (msg.content === 'Sa') {
+    msg.reply('**Selam Hoşgeldin.**                                                          `>`<http://instagram.com/muratsigmaz>` takip etmeyi unutma! ♥');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'Selam') {
+    msg.reply('**Selam Hoşgeldin.**                                                          `>`<http://instagram.com/muratsigmaz>` takip etmeyi unutma! ♥');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'Selamlar') {
+    msg.reply('**Selam Hoşgeldin.**                                                          `>`<http://instagram.com/muratsigmaz>` takip etmeyi unutma! ♥');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'SA') {
+    msg.reply('**Selam Hoşgeldin.**                                                          `>`<http://instagram.com/muratsigmaz>` takip etmeyi unutma! ♥');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'sunucu') {
+    msg.reply('sen sunucuyu kafana takma biz büyüyoruz bak dalgana genç!');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'murat') {
+    msg.reply('yavaş ol murat derken bile besmele çekmiyorsun sakin bölgeye geç!');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'link') {
+    msg.reply('hayır anlamıyorum napcan linki arkadaşını çağırcaksan tamam ama baskın filan sker atarım!');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'naber') {
+    msg.reply('gelmedi senden bi haber merak ettim öldünmü diye sorcam banane mk!');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === '!ban özel') {
+    msg.reply('AL BUNU AĞZINA https://media.giphy.com/media/uC9e2ojJn1ZXW/giphy.gif');
+  }
+});
+
+
+const Discord = require('discord.js');
+const db = require('quick.db')
+
+exports.run = async (client, message, args) => {
+  
+  let user = message.author
+  let sebep = args.join(" ")
+  
+  if (!sebep) return message.channel.send(`Bir sebep yazmalısın.`)
+  
+  db.set(`afk_${user.id}`, sebep)
+  message.channel.send(`Artık \`${sebep}\` sebebiyle AFK'sın.`)
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 0
+}
+
+exports.help = {
+  name: 'afk',
+  description: "AFK olmanızı sağlar.",
+  usage: 'afk <sebep>'
+}
 
 client.elevation = message => {
   if(!message.guild) {
