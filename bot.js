@@ -147,7 +147,7 @@ client.on('message', msg => {
 });
 
 
-const db = require('quick.db')
+
 
 exports.run = async (client, message, args) => {
   
