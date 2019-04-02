@@ -4,7 +4,6 @@ const ayarlar = require('./ayarlar.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
-require('./util/eventLoader')(client);
 
 var prefix = ayarlar.prefix;
 
@@ -148,7 +147,6 @@ client.on('message', msg => {
 });
 
 
-const Discord = require('discord.js');
 const db = require('quick.db')
 
 exports.run = async (client, message, args) => {
