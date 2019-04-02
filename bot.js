@@ -195,11 +195,7 @@ client.on('message', msg => {
 	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(ayarlar.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(ayarlar.prefix.length).split(' ')[0]](msg);
 });
 
-client.on('message', msg => {
-  if (msg.content === 'sa') {
-    msg.reply('**Selam Hoşgeldin.**                                                          `>`<http://instagram.com/muratsigmaz>` takip etmeyi unutma! ♥');
-  }
-});
+
 
 client.on('message', msg => {
   if (msg.content === 'Sa') {
