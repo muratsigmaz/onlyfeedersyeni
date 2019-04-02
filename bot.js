@@ -9,7 +9,7 @@ const fs = require('fs');
 const moment = require('moment');
 require('./util/eventLoader')(client);
 
-const youtube = new YouTube(ayarlar.api);
+const youtube = new YouTube(process.env.api);
 
 var prefix = ayarlar.prefix;
 
